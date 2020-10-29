@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import ToDoItem from './ToDoItem'
 
 function App() {
 
@@ -39,8 +39,8 @@ function App() {
       </div>
       <div>
         <ul>
-          {listArray.map((item) => {
-            return <li>{item}</li>
+          {listArray.map((item, index) => {
+            return <ToDoItem key={index} item={item} />
           })}
         </ul>
       </div>
