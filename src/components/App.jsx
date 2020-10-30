@@ -24,6 +24,15 @@ function App() {
     setText("")
   }
 
+  const deleteItem = (id) => {
+    //delete the todo item to the array
+    setListArray(prev => {
+      return prev.filter((item, index) => {
+        return index !== id
+      })
+    })
+  }
+
 
 
   return (
@@ -40,7 +49,12 @@ function App() {
       <div>
         <ul>
           {listArray.map((item, index) => {
-            return <ToDoItem key={index} item={item} />
+            return <ToDoItem
+              id={index}
+              key={index}
+              item={item}
+              onChecked={deleteItem}
+            />
           })}
         </ul>
       </div>
